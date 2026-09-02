@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>e-OB Kenya — New Occurrence</title>
+<style>
+:root{--navy:#12344d;--blue:#1d5d85;--bg:#f4f6f8;--line:#d8e0e6;--text:#18242d}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Inter,Arial,sans-serif;color:var(--text)}
+.header{background:var(--navy);color:#fff;padding:15px 28px;display:flex;justify-content:space-between;align-items:center}
+.brand{font-weight:700}.user{font-size:13px;opacity:.9}
+.layout{display:grid;grid-template-columns:245px 1fr;min-height:calc(100vh - 58px)}
+.sidebar{background:#fff;border-right:1px solid var(--line);padding:22px 14px}
+.sidebar a{display:block;padding:11px 13px;color:#314553;text-decoration:none;border-radius:7px;margin:3px 0}
+.sidebar a.active,.sidebar a:hover{background:#eaf1f6;color:var(--navy);font-weight:600}
+main{padding:28px;max-width:1200px;width:100%}
+.breadcrumb{font-size:13px;color:#687782;margin-bottom:8px}
+h1{font-size:26px;margin:5px 0 20px}.card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:22px;margin-bottom:18px}
+.card h2{font-size:17px;margin:0 0 18px;color:var(--navy)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+label{display:block;font-size:13px;font-weight:700;margin:0 0 6px}
+input,select,textarea{width:100%;padding:11px 12px;border:1px solid #c9d3da;border-radius:6px;background:#fff;font:inherit}
+textarea{min-height:145px;resize:vertical}.hint{font-size:12px;color:#73818a;margin-top:5px}
+.required{color:#a32626}.actions{display:flex;gap:10px;justify-content:flex-end}
+.btn{border:0;border-radius:7px;padding:11px 17px;font-weight:700;cursor:pointer}
+.primary{background:var(--blue);color:#fff}.secondary{background:#eef2f5;color:#243743}
+.notice{background:#fff7e5;border:1px solid #efd59a;padding:12px 14px;border-radius:7px;font-size:13px;margin-bottom:18px}
+.ob-badge{display:inline-block;background:#edf4f8;color:var(--navy);padding:7px 10px;border-radius:6px;font-size:13px;font-weight:700}
+@media(max-width:800px){.layout{grid-template-columns:1fr}.sidebar{display:none}.grid{grid-template-columns:1fr}main{padding:18px}}
+</style>
+</head>
+<body>
+<header class="header">
+  <div class="brand">e-OB Kenya <span style="font-weight:400">| Police Station Operations</span></div>
+  <div class="user">OB Officer · Demo Station · 02 Sep 2026</div>
+</header>
+<div class="layout">
+  <aside class="sidebar">
+    <a href="#">Dashboard</a>
+    <a class="active" href="#">New Occurrence</a>
+    <a href="#">OB Register</a>
+    <a href="#">My Assignments</a>
+    <a href="#">Reports</a>
+    <a href="#">Audit Log</a>
+    <a href="#">Administration</a>
+  </aside>
+  <main>
+    <div class="breadcrumb">Occurrence Book / New Entry</div>
+    <h1>Record New Occurrence</h1>
+
+    <div class="notice">
+      <b>Record integrity:</b> Once submitted, the original occurrence should remain
+      traceable. Corrections should be recorded as amendments with the reason,
+      officer and date/time.
+    </div>
+
+    <section class="card">
+      <h2>1. Occurrence identification</h2>
+      <div class="grid">
+        <div>
+          <label>Police Station</label>
+          <input value="DEMO-001 — Demo Police Station" disabled>
+        </div>
+        <div>
+          <label>OB Number</label>
+          <div class="ob-badge">Generated on save</div>
+          <div class="hint">The system assigns the next station-specific OB number.</div>
+        </div>
+        <div>
+          <div><label>Occurrence date <span class="required">*</span></label>
+          <input type="date" value="2026-09-02"></div>
+        </div>
+        <div>
+          <label>Occurrence time <span class="required">*</span></label>
+          <input type="time" value="12:39">
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>2. Occurrence details</h2>
+      <div class="grid">
+        <div>
+          <label>Category <span class="required">*</span></label>
+          <select>
+            <option>General Report</option><option>Crime Report</option>
+            <option>Traffic Incident</option><option>Missing Person</option>
+            <option>Arrest / Custody</option><option>Police Action</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div>
+          <label>Sub-category</label>
+          <select><option>Select sub-category</option></select>
+        </div>
+      </div>
+      <label style="margin-top:15px">Location <span class="required">*</span></label>
+      <input placeholder="Describe the location of the occurrence">
+      <div class="hint">Capture only information necessary for the operational purpose.</div>
+
+      <label style="margin-top:18px">Occurrence narrative <span class="required">*</span></label>
+      <textarea placeholder="Enter a concise factual account of the occurrence..."></textarea>
+    </section>
+
+    <section class="card">
+      <h2>3. Reporting person</h2>
+      <div class="grid">
+        <div><label>Full name <span class="required">*</span></label><input></div>
+        <div><label>Telephone</label><input></div>
+        <div><label>Address / contact details</label><input></div>
+        <div><label>Person's role</label><select><option>Reporter</option><option>Complainant</option><option>Victim</option><option>Witness</option></select></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>4. Initial action</h2>
+      <label>Action taken</label>
+      <textarea placeholder="Record the action taken immediately after receiving the report..."></textarea>
+    </section>
+
+    <section class="card">
+      <h2>5. Submission</h2>
+      <div class="actions">
+        <button class="btn secondary">Save Draft</button>
+        <button class="btn primary">Submit Occurrence</button>
+      </div>
+    </section>
+  </main>
+</div>
+</body>
+</html>

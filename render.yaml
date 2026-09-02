@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: eob-kenya-demo
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --bind 0.0.0.0:$PORT app:app
+    healthCheckPath: /health
+    envVars:
+      - key: EOB_SECRET_KEY
+        generateValue: true
+      - key: EOB_PASSWORD_PEPPER
+        generateValue: true
+      - key: EOB_FIELD_ENCRYPTION_SEED
+        generateValue: true
+      - key: EOB_DEMO_MODE
+        value: "1"
+      - key: EOB_SECURE_COOKIES
+        value: "1"

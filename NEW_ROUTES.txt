@@ -1,0 +1,6 @@
+Integrated routes (implemented in app.py):
+GET  /ui/register                 -> /occurrences
+GET  /ui/ob/<oid>                 -> /occurrences/<oid>
+GET/POST /ui/ob/<oid>/amend       -> /occurrences/<oid>/amend
+
+The application now uses Flask/Jinja templates under templates/ and the existing ui/ files are retained as design/reference artifacts.
